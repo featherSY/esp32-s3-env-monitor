@@ -1,0 +1,17 @@
+# ESP-IDF generated files
+**/build/
+**/managed_components/
+**/sdkconfig
+**/sdkconfig.old
+
+# Python caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
