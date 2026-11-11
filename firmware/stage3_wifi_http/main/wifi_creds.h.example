@@ -1,0 +1,6 @@
+/* 复制本文件为 wifi_creds.h，填入自己的 WiFi 信息。
+ * wifi_creds.h 已被 .gitignore 排除，不会提交到公开仓库。 */
+#pragma once
+
+#define WIFI_SSID "你的WiFi名称"
+#define WIFI_PASS "你的WiFi密码"

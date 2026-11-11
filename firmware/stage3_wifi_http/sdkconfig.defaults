@@ -1,0 +1,6 @@
+CONFIG_IDF_TARGET="esp32s3"
+CONFIG_ESPTOOLPY_FLASHSIZE_16MB=y
+# HTTP server 默认栈偏小，handler 里用了 snprintf
+CONFIG_HTTPD_MAX_REQ_HDR_LEN=1024
+# 打开 core dump / panic 打印，排查崩溃用
+CONFIG_ESP_SYSTEM_PANIC_PRINT_REBOOT=y
