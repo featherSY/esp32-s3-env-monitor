@@ -96,11 +96,17 @@ def main():
     ax.set_xlabel("time (s)")
     ax.set_ylabel("temperature (°C)")
     ax.set_title("ESP32-S3 on-chip temperature: CPU full-load heating test")
-    ax.margins(y=0.08)
+    "ax.margins(y=0.08)"
+
+    ax.set_xlim(-4, max(t) + 4)
+    ax.set_ylim(min(raw + fil) - 0.35, max(raw + fil) + 0.35)
+
     ax.grid(alpha=.3)
     ax.legend()
     fig.tight_layout()
-    fig.savefig(args.out, dpi=150)
+    "fig.savefig(args.out, dpi=150)"
+    fig.savefig(args.out, dpi=150, bbox_inches="tight")
+
 
     print(f"✅ 已保存 {args.out}   共 {len(rows)} 个采样点，时长 {t[-1]:.0f}s")
     print(f"   滤波值 {fil[0]:.2f} → {fil[-1]:.2f} °C（{fil[-1] - fil[0]:+.2f}）")
