@@ -74,18 +74,29 @@ def main():
     edges = [i for i in range(1, len(heat)) if heat[i] != heat[i - 1]]
 
     fig, ax = plt.subplots(figsize=(11, 5))
+    ax.plot(t, raw, ".", ms=4, alpha=.35, color="#999999", label="raw (1 °C steps)")
+    ax.plot(t, fil, "-", lw=2, color="#c0392b", label="filtered (N=8)")
+    
+    """
     ax.plot(t, raw, ".", ms=4, alpha=.35, color="#999999", label="raw (1°C 分辨率)")
     ax.plot(t, fil, "-", lw=2, color="#c0392b", label="filtered (N=8)")
+    """
 
     ymax = max(raw + fil)
     for i in edges:
         ax.axvline(t[i], color="#2980b9", ls="--", lw=1.2, alpha=.8)
+
+        ax.text(t[i], ymax, " heat ON" if heat[i] else " heat OFF",
+                fontsize=9, color="#2980b9", va="top")
+        """
         ax.text(t[i], ymax, " 加热 ON" if heat[i] else " 加热 OFF",
                 fontsize=9, color="#2980b9", va="top")
+        """
 
     ax.set_xlabel("time (s)")
     ax.set_ylabel("temperature (°C)")
     ax.set_title("ESP32-S3 on-chip temperature: CPU full-load heating test")
+    ax.margins(y=0.08)
     ax.grid(alpha=.3)
     ax.legend()
     fig.tight_layout()
